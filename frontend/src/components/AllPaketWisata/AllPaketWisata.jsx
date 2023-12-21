@@ -1,0 +1,45 @@
+import React from "react";
+import { BsStarFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
+
+const AllPaketWisata = (props) => {
+  const { packageTour } = props;
+  return (
+    <>
+      <div className="p-4 font-productSans">
+        <div className="w-full bg-neutral-card rounded-lg drop-shadow-xl">
+          <img
+            className="rounded-t-lg"
+            src={packageTour.image_card}
+            alt={packageTour.title}
+          />
+          <div className="p-5">
+            <h5 className="mb-2 text-xl font-bold tracking-tight text-neutral-100">
+              {packageTour.title}
+            </h5>
+            <div className="flex flex-row gap-3">
+              <a className="text-primary-pressed">{packageTour.category}</a>
+            </div>
+            <div className="flex flex-row justify-between p-3">
+              <div className="flex flex-row">
+                <BsStarFill className="w-10 h-10" fill="#EE9C22" />
+                <div className="ml-4">
+                  <p className="text-sm font-bold">{packageTour.rating}</p>
+                  <p className="text-sm">{packageTour.review} Reviews</p>
+                </div>
+              </div>
+              <Link
+                to="/paketWisata/detailPaket"
+                className="inline-flex items-center px-4 py-2 text-[16px]  text-center text-primary-main border-solid border-2 border-primary-main bg-primary-surface rounded-lg"
+              >
+                Detail
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default AllPaketWisata;
