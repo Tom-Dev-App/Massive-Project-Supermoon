@@ -7,6 +7,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import config from "../../../../config";
 
 export default function BuatBlog() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function BuatBlog() {
       });
 
       const response = await axios.post(
-        `http://localhost:8000/api/posts/`,
+        `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}/posts/`,
         submitData
       );
 

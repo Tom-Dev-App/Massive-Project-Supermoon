@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import axios from "axios";
 import { BsFillStarFill } from "react-icons/bs";
+import config from "../../config";
+
 
 const PaketWisata = () => {
   const [tourPackets, setTourPackets] = useState([]);
@@ -15,7 +17,7 @@ const PaketWisata = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/tour-packets/all`
+          `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}tour-packets/all`
         );
         console.log(response.data?.data ?? []);
         setTourPackets(response.data?.data ?? []);
@@ -63,7 +65,7 @@ const PaketWisata = () => {
                     <div className="w-full bg-neutral-card rounded-lg drop-shadow-xl">
                       <img
                         className="rounded-t-lg aspect-square block aspect-square object-fill"
-                        src={`http://localhost:8000${tour?.image}` ?? ""}
+                        src={`${SERVER_URL}${tour?.image}` ?? ""}
                         alt={""}
                       />
                       <div className="p-5">

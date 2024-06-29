@@ -9,13 +9,15 @@ import { FaTrashCan } from "react-icons/fa6";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import axios from "axios";
 import Footer from "../../../../components/Footer/Footer";
+import config from "../../../../config";
+
 
 export default function IndexBlog() {
   const [posts, setPosts] = useState([]);
-  const UPDATE_URL = "http://localhost:8000/api/posts";
+  const UPDATE_URL = "${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}posts";
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/posts")
+      .get("${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}posts")
       .then((response) => {
         // Handle the successful response here
         console.log("Data from server:", response.data);

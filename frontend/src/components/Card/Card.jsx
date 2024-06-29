@@ -1,14 +1,16 @@
 import React from "react";
 import { BsStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import config from "../../config";
+
 
 const Card = ({ filteredtour }) => {
   return (
     <>
       <div className="p-4 font-productSans">
         <div className="w-[328px] bg-neutral-card rounded-lg drop-shadow-xl">
-          <img src={filteredtour.image_card}
-          src={`http://localhost:8000${filteredtour?.image}`}
+          <img 
+          src={`${SERVER_URL}${filteredtour?.image}`}
            alt="image" />
           <div className="p-5">
             <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">

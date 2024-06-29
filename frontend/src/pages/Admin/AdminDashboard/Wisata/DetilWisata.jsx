@@ -11,7 +11,7 @@ import { ROLES } from "../../../../constants";
 import useAuth from "../../../../hooks/useAuth";
 // FROM OLD
 // import data from "../../../../utils/constants/Data";
-import imgLokasi from "../../../../assets/images/DetailWisata/DetailWisata-1/lokasi.png";
+// import imgLokasi from "../../../../assets/images/DetailWisata/DetailWisata-1/lokasi.png";
 import imgAvatar from "../../../../assets/images/DetailWisata/DetailWisata-1/avatar.png";
 import imgProfile from "../../../../assets/images/DetailWisata/DetailWisata-1/profile.png";
 import {
@@ -54,7 +54,7 @@ const DetilWisata = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/culinaries/all`
+          `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}culinaries/all`
         );
         //console.log(response.data?.data ?? []);
         setCulinaries(response.data?.data ?? []);
@@ -68,7 +68,7 @@ const DetilWisata = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/lodgings/all`
+          `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}lodgings/all`
         );
         //console.log(response.data?.data ?? []);
         setInns(response.data?.data ?? []);
@@ -82,7 +82,7 @@ const DetilWisata = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/culinaries/all`
+          `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}culinaries/all`
         );
         //console.log(response.data?.data ?? []);
         setCulinaries(response.data?.data ?? []);
@@ -97,7 +97,7 @@ const DetilWisata = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/tours/slug/${slug}`
+          `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}tours/slug/${slug}`
         );
 
         const fetchingData = response.data.data;
@@ -196,7 +196,7 @@ const DetilWisata = () => {
               </div>
             </div>
             <div className=" flex flex-col gap-[20px] flex-1">
-              <img src={imgLokasi} alt="" />
+              <img src={''} alt="" />
               {/* LOCATION DETAIL */}
               <p className="lg:text-base text-sm">
                 {tourData.address ?? "ALAMAT"}

@@ -7,6 +7,8 @@ import AuthNavbar from "../../components/Navbar/AuthNavbar";
 import { Link } from "react-router-dom";
 import { BsFillStarFill } from "react-icons/bs";
 import axios from "axios";
+import config from "../../config";
+
 
 const Wisata = () => {
   const [tours, setTours] = useState([]);
@@ -14,7 +16,7 @@ const Wisata = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/tours/data/all`
+          `${SERVER_URL}tours/data/all`
         );
         // console.log("TOURS", response.data ?? []);
         setTours(response.data?.data ?? []);
@@ -59,7 +61,7 @@ const Wisata = () => {
                     <div className="w-full bg-neutral-card rounded-lg drop-shadow-xl">
                       <img
                         className="rounded-t-lg aspect-square object-fill"
-                        src={`http://localhost:8000${tour?.image}` ?? ""}
+                        src={`${SERVER_URL}${tour?.image}` ?? ""}
                         alt={""}
                       />
                       <div className="p-5">

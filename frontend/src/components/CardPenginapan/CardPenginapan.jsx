@@ -1,6 +1,7 @@
 import React from "react";
 import { BsStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import config from "../../config";
 
 const CardPenginapan = ({ lodge }) => {
   console.log("LODGE DATA", lodge);
@@ -12,7 +13,7 @@ const CardPenginapan = ({ lodge }) => {
             <img
               className="rounded-t-lg"
               alt="image"
-              src={`http://localhost:8000${lodge.image}` ?? ""}
+              src={`${SERVER_URL}${lodge.image}` ?? ""}
             />
             <div className="p-5">
               <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">

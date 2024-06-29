@@ -1,5 +1,8 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
+import config from "../../config";
+
 
 const CardBlog = ({ blog }) => {
   return (
@@ -7,7 +10,7 @@ const CardBlog = ({ blog }) => {
       <div className="font-productSans p-4">
         <div className="w-full h-full bg-neutral-card rounded-lg drop-shadow-xl">
           <img
-            src={`http://localhost:8000${blog.img_path}`}
+            src={`${SERVER_URL}${blog.img_path}`}
             alt={blog?.title}
             className="rounded-lg"
           />

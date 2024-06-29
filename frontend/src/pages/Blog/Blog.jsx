@@ -7,13 +7,15 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import data from "../../utils/constants/Blog";
 import axios from "axios";
+import config from "../../config";
+
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
   const [posts, setPosts] = useState([]);
   const [one, setOne] = useState({});
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get("http://localhost:8000/api/posts");
+      const response = await axios.get(`${SERVER_URL}posts`);
       setBlogs(response.data.data);
       // console.log(response);
       // setPosts(() => blogs.slice(1));
@@ -38,7 +40,7 @@ const Blog = () => {
         </h3>
         <img
           className="md:max-w-[60%] md:max-h-[40%] object-fit mx-auto block h-full rounded-lg items-center"
-          src={`http://localhost:8000${one?.img_path}`}
+          src={`${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}${one?.img_path}`}
           alt="image"
         />
         <p className="py-5 lg:text-xl text-base tracking-tight text-gray-900">

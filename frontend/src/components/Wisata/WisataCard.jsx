@@ -4,6 +4,8 @@ import Card from "../Card/Card";
 import data from "../../utils/constants/Data";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import config from "../../config";
+
 
 const WisataCard = () => {
   const [tours, setTours] = useState([]);
@@ -13,7 +15,7 @@ const WisataCard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const allData = await axios.get(`http://localhost:8000/api/tours/three`);
+        const allData = await axios.get(`${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}tours/three`);
         console.log(allData.data);
         setTours(() => allData.data.data ?? []);
       } catch (err) {

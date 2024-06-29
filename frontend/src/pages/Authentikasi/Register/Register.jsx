@@ -6,6 +6,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import config from "../../../config";
+
 
 const Register = () => {
   const navigate = useNavigate();
@@ -27,7 +29,7 @@ const Register = () => {
   useEffect(() => {
     // Fetch gender data
     axios
-      .get("http://localhost:8000/api/auth")
+      .get("${SERVER_URL}auth")
       .then((response) => {
         setGenders(response.data.genders);
       })
@@ -60,7 +62,7 @@ const Register = () => {
     try {
       // Send a POST request to the backend
       const response = await axios.post(
-        "http://localhost:8000/api/auth/",
+        `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}auth/`,
         formData
       );
 

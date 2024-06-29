@@ -8,6 +8,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../../hooks/useAuth";
+import config from "../../../config";
+
 
 const Login = () => {
   const { setAuth } = useAuth();
@@ -32,7 +34,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/auth/login",
+        `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}auth/login`,
         formData
       );
 

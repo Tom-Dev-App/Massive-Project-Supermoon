@@ -5,6 +5,8 @@ import data from "../../../../utils/constants/Blog";
 import Navbar from "../../../../components/Navbar/Navbar";
 import Footer from "../../../../components/Footer/Footer";
 import axios from "axios";
+import config from "../../../../config";
+
 
 const DetilBlog = () => {
   // const [posts, setPosts] = useState(data);
@@ -12,7 +14,7 @@ const DetilBlog = () => {
   const { slug } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/posts/slug/${slug}`)
+      .get(`${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}posts/slug/${slug}`)
       .then((response) => {
         // Handle the successful response here
         console.log("Data from server:", response.data);

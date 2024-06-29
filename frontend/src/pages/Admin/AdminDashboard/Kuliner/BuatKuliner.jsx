@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Select from "react-select";
+import config from "../../../../config";
+
 
 const BuatKuliner = () => {
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ const BuatKuliner = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8000/api/culinaries`,
+        `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}culinaries`,
         formData
       );
       console.log(response?.data);

@@ -26,7 +26,7 @@ const EditPenginapan = () => {
     const fetchFacilities = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/tour-packets/facilities"
+          `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}tour-packets/facilities`
         );
         const facilitiesData = response.data.data.facilities;
         const options = facilitiesData.map((facility) => ({
@@ -60,7 +60,7 @@ const EditPenginapan = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/lodgings/slug/${slug}`
+          `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}lodgings/slug/${slug}`
         );
         const fetchData = response.data.data;
         console.log(fetchData);
@@ -112,7 +112,7 @@ const EditPenginapan = () => {
 
       // Check if there are new images to upload
       await axios.post(
-        `http://localhost:8000/api/lodgings/images/${id}`,
+        `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}lodgings/images/${id}`,
         formDataImage,
         {
           headers: {
@@ -152,7 +152,7 @@ const EditPenginapan = () => {
 
       // Check if there are new images to upload
       await axios.put(
-        `http://localhost:8000/api/lodgings/images/${id}`,
+        `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}odgings/images/${id}`,
         formDataImage,
         {
           headers: {
@@ -197,7 +197,7 @@ const EditPenginapan = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/lodgings/update/${id}`,
+        `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}lodgings/update/${id}`,
         formData
       );
       console.log(response?.data);
@@ -221,7 +221,7 @@ const EditPenginapan = () => {
     const DataFacilities = { facilities: data };
     try {
       const response = await axios.post(
-        `http://localhost:8000/api/lodgings/facilities/${id}`,
+        `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}lodgings/facilities/${id}`,
         DataFacilities
       );
       console.log(response?.data);
@@ -244,7 +244,7 @@ const EditPenginapan = () => {
     const DataFacilities = { facilities: data };
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/lodgings/facilities/${id}`,
+        `${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}lodgings/facilities/${id}`,
         DataFacilities
       );
       console.log(response?.data);

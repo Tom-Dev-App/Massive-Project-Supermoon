@@ -10,7 +10,7 @@ import { ROLES } from "../../../../constants";
 import useAuth from "../../../../hooks/useAuth";
 // FROM OLD
 // import data from "../../../../utils/constants/Data";
-import imgLokasi from "../../../../assets/images/DetailWisata/DetailWisata-1/lokasi.png";
+// import imgLokasi from "../../../../assets/images/DetailWisata/DetailWisata-1/lokasi.png";
 // import imgAvatar from "../../../../assets/images/DetailWisata/DetailWisata-1/avatar.png";
 // import imgProfile from "../../../../assets/images/DetailWisata/DetailWisata-1/profile.png";
 
@@ -59,7 +59,7 @@ const DetilKuliner = () => {
         <div className="lg:px-16 px-4 flex flex-col gap-8 py-6 lg:py-24">
           <div className="grid grid-rows-1 gap-3">
             <img
-              src={`http://localhost:8000${images[0]?.img_path}`}
+              src={`${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}{images[0]?.img_path}`}
               alt="Grage Sangkan Hotel"
               className="w-full rounded-lg object-cover row-span-2 h-full"
             />
@@ -107,7 +107,7 @@ const DetilKuliner = () => {
               </div>
             </div>
             <div className=" flex flex-col gap-[20px] flex-1">
-              <img src={imgLokasi} alt="" />
+              <img src={''} alt="" />
               {/* LOCATION DETAIL */}
               <p className="lg:text-base text-sm">{inn.address ?? "ALAMAT"}</p>
               {/* LOCATION LINK */}

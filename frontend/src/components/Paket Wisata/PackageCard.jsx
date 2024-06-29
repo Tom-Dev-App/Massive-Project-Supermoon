@@ -4,6 +4,7 @@ import CardPackage from "../CardPackage/CardPackage";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { BsStarFill } from "react-icons/bs";
+import config from "../../config";
 
 
 const PackageCard = () => {
@@ -11,7 +12,7 @@ const PackageCard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const allData = await axios.get(`http://localhost:8000/api/tour-packets/three`);
+        const allData = await axios.get(`${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}tour-packets/three`);
         console.log(allData.data);
         setPackageTours(() => allData.data.data ?? []);
       } catch (err) {
@@ -33,7 +34,7 @@ const PackageCard = () => {
             <div key={t?.slug ?? t?.title ?? t.id} className="p-4 font-productSans">
               <div className="w-[328px] bg-neutral-card rounded-lg drop-shadow-xl">
                 <img
-                  src={`http://localhost:8000${t?.image}`}
+                  src={`${import.meta.env.VITE_APP_SERVER_URL ?? 'localhost:8000/api/'}{t?.image}`}
                   alt="image"
                 />
                 <div className="p-5">

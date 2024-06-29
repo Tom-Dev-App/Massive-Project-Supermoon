@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { FaStar } from "react-icons/fa6";
 import data from "../../utils/constants/Data";
-import imgLokasi from "../../assets/images/DetailWisata/DetailWisata-1/lokasi.png";
+// import imgLokasi from "../../assets/images/DetailWisata/DetailWisata-1/lokasi.png";
 import imgAvatar from "../../assets/images/DetailWisata/DetailWisata-1/avatar.png";
 import imgProfile from "../../assets/images/DetailWisata/DetailWisata-1/profile.png";
 import {
@@ -133,7 +133,7 @@ const DetailWisata = () => {
               </div>
             </div>
             <div className=" flex flex-col gap-[20px] flex-1">
-              <img src={imgLokasi} alt="" />
+              <img src={''} alt="" />
               <p className="lg:text-base text-sm">
                 Desa Peusing, Kecamatan Jalaksana, Kabupaten Kuningan, Provinsi
                 Jawa Barat
